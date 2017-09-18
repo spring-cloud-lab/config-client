@@ -14,6 +14,9 @@ public class ConfigClientApplication {
 	@Value("${foo}")
 	private String foo;
 
+	@Value("${encrypted}")
+	private String encrypted;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ConfigClientApplication.class, args);
 	}
@@ -22,5 +25,8 @@ public class ConfigClientApplication {
 	ResponseEntity hello() {
 		return ResponseEntity.ok(foo);
 	}
+
+	@RequestMapping("/encrypted")
+	ResponseEntity encrypted() {return ResponseEntity.ok(encrypted);}
 
 }
